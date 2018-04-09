@@ -20,7 +20,7 @@
   - Use connections
   - *alt*: `pirate_speech.py`
 6. **Final Project**: Movie Trailers - `movies/`
-  - [Live Example](https://buildthatapp.github.io/project03/movies.html)
+  - [Live Example](https://buildthatapp.github.io/udacity_introtoprogramming_project03/movies.html)
   - Class for movies with movie posters and trailers.
   - Created first class
   - Create webpage with Python
