@@ -1,6 +1,9 @@
-import fresh_tomatoes
+#!python
+# -*- coding: utf-8 -*-
 import media
+import fresh_tomatoes
 
+from operator import add
 
 toy_story = media.Movie("Toy Story",
                         "In a world where toys pretend to be lifeless in the presence of humans, Woody, a pullstring cowboy doll, is the leader of a group of toys that are owned by a boy named Andy Davis.",
@@ -121,6 +124,13 @@ nichijou = media.TVShow("Nichijou",
                         "http://myanimelist.net/anime/10165/Nichijou",
                         1, 26, False)
 
-'''Calling open_movies from fresh_tomatoes and passing the list movies
-as a parameter'''
-fresh_tomatoes.open_movies_page(movies)
+if __name__ == '__main__':
+    """Generates an HTML page with all video instances and opens it in a browser.
+
+    Also generates HTML pages for movies and tv shows separately."""
+    mediums = [media.Movie, media.TVShow]
+    all_video = reduce(add, map(list, (medium.get_instances() for medium in mediums)))
+
+    fresh_tomatoes.open_movies_page(all_video)
+    for medium in mediums:
+        fresh_tomatoes.render_page(medium.__name__, list(medium.get_instances()))
